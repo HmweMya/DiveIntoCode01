@@ -1,0 +1,12 @@
+<html>
+    <header>
+        <link rel="stylesheet" href="../../assets/top.css">
+    </header>
+    <body class="body_entry">
+        <div>
+           <%= form_for(@top), :url => tops_path do |f| %>
+               <%= f.text_field :name %>
+               <%= f.submit %>
+           <% end %>
+        </div>
+    </body></html>

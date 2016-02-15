@@ -1,0 +1,26 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.body_index{
+    background : blue;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius : 5px;
+}
+.page_header{
+    color:blue;
+}
+.need {
+    color: red;
+}
+.align{
+    margin: 20px 0px 0px 120px;
+}

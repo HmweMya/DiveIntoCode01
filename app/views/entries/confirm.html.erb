@@ -1,0 +1,19 @@
+<body class="body_index">
+    <table>
+<%= form_for @confirm, url: thanks_path do |f| %>
+<tr>
+ <td>名前</td>
+ <td><%= f.text_field :name %></td>
+ </tr>
+ <tr>
+     <td>メールアドレス</td>
+    <td><%= f.text_field :email %></td>
+  </tr>
+  <tr>
+      <td>お問い合わせ内容</td>
+   <td><%= f.text_area :contact %></td>
+   </tr>
+   </table>
+  <p class="align"><%= f.submit '保存', :class => 'button' %></p>
+<% end %>
+</body>

@@ -1,0 +1,20 @@
+<body class="body_index">
+    <%= form_for @entry, url: confirm_path do |f| %>
+<table>
+    
+    <tr>
+         <td>名前<span class="need">(*)</span></td>
+         <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+        <td>メールアドレス<span class="need">(*)</span></td>
+         <td><%= f.text_field :email %></td>
+    </tr>
+    <tr>
+        <td>お問い合わせ内容</td>
+        <td><%= f.text_area :contact %></td> 
+    </tr>
+</table>
+<p class="align"><%= f.submit '確認', :class => 'button' %></p>
+ <% end %>
+</body>
