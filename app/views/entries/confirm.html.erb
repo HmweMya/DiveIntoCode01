@@ -1,9 +1,10 @@
 <body class="body_index">
     <table>
-<%= form_for @confirm, url: thanks_path do |f| %>
+<%= form_for @entry, url: thanks_path do |f| %>
 <tr>
  <td>名前</td>
  <td><%= f.text_field :name %></td>
+ 
  </tr>
  <tr>
      <td>メールアドレス</td>
@@ -15,5 +16,12 @@
    </tr>
    </table>
   <p class="align"><%= f.submit '保存', :class => 'button' %></p>
+<% end %>
+<%= form_for @entry, url: entry_path do |f| %>
+     <p class="align"><%= f.submit '戻る',:name =>'back', :class => 'button' %></p>
+     <%= f.hidden_field :name %>
+     <%= f.hidden_field :email %>
+     <%= f.hidden_field :contact %>
+    
 <% end %>
 </body>
