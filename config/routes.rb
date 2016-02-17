@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
  # get 'blogs', to: 'blogs#index'
  #root 'top#index'
  get 'top' => 'top#index'
