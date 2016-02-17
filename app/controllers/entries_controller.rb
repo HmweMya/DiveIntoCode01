@@ -7,9 +7,9 @@ class EntriesController < ApplicationController
     end
     def confirm
         @entry = Entry.new(confirm_params)
-        if @entry.valid?
+        if @entry.valid? # if true
             render action: 'confirm'
-       elsif params[:back]
+       elsif params[:back] # back page data remain
         render action: 'new'
         else 
            @entry.save
@@ -21,7 +21,7 @@ class EntriesController < ApplicationController
             @entry.save
        # end
     end
-    private
+    private  #protect hacking
     def confirm_params
        params.require(:entry).permit(:name, :email, :contact) 
       
