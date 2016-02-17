@@ -209,3 +209,8 @@ ja:
       short: "%y/%m/%d %H:%M"
     pm: 午後
     
+    attributes:
+    entry:
+        Name: '名前'
+        Email: 'メールアドレス'
+        contact: お問い合わせ内容

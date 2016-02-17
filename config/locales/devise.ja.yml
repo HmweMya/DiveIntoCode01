@@ -1,4 +1,19 @@
 ja:
+  activerecord:
+    models:
+     entry: お問い合わせ
+     user: ユーザー
+    attributes:
+     entry:
+       name: '名前'
+       email: 'メールアドレス'
+       contact: 'お問い合わせ内容'
+     user:
+      email: 'メールアドレス'
+      contact: 'お問い合わせ内容'
+      password: 'パスワード'
+      
+    
   errors:
     messages:
       not_found: "は見つかりませんでした"
@@ -7,6 +22,9 @@ ja:
 #      already_confirmed: "was already confirmed"
       not_locked: "は凍結されていません"
 #      not_locked: "was not locked"
+      not_saved:
+        one: "1つのエラーにより、%{resource} を保存できませんでした："
+        other: "%{count} 個のエラーにより、%{resource} を保存できませんでした："
 
   devise:
     failure:
@@ -46,6 +64,10 @@ ja:
 #      updated: 'You updated your account successfully.'
       destroyed: 'アカウントを削除しました。またのご利用をお待ちしております。'
 #      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+      signed_up_but_inactive: "アカウントは登録されていますが、有効になっていないため利用できません。"
+      signed_up_but_locked: "アカウントは登録されていますが、ロックされているため利用できません。"
+      signed_up_but_unconfirmed: "確認メールを、登録したメールアドレス宛に送信しました。メールに記載されたリンクを開いてアカウントを有効にして下さい。"
+      update_needs_confirmation: "アカウント情報が更新されました。新しいメールアドレスの確認が必要です。更新確認のメールを新しいメールアドレス宛に送信しましたので、メールを確認し記載されたリンクを開き、新しいメールアドレスの確認をお願いします。"
     unlocks:
       send_instructions: 'アカウントの凍結解除方法を数分以内にメールでご連絡します。'
 #      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
