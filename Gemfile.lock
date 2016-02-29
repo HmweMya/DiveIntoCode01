@@ -234,7 +234,7 @@ DEPENDENCIES
   pry-rails
   rails (= 4.2.4)
   rails_12factor
-  rmagick (~> 2.13.1)
+  rmagick
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
