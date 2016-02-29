@@ -1,3 +1,42 @@
+<head>
+  <style>
+    .thumbnail {
+      margin:0px auto;
+      max-width:200px;
+    }
+  </style>
+</head>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+              </button>
+              <a class="navbar-brand">トップページ</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li class=""><%= link_to 'マイページ','/users/edit', class: "color" %></li>
+                
+                <li><%= link_to 'お問い合わせ','entry', class: "color" %></li>
+                <li><%= link_to 'Blog',blogs_path, class: "color" %></li>
+                <li><%= link_to "facebook認証", user_omniauth_authorize_path(:facebook), class: 'fa fa-facebook-square navbar-link color' %></li> 
+                <li><%= link_to "twitter認証", user_omniauth_authorize_path(:twitter), class: 'fa fa-twitter-square navbar-link color' %></li>
+                <li><%= link_to "ユーザー一覧", '/users/index' , class: "color" %> </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+               <li><% if user_signed_in? %>
+                     <%= link_to 'ログアウト' , destroy_user_session_path, method: :delete, class:"glyphicon glyphicon-user button color" %>
+                     <% else %>
+                     <%= link_to 'ログイン' ,new_user_session_path, class: "glyphicon glyphicon-log-in button color" %></li> 
+                <% end %></ul>
+              
+
+            </div>
+          </div>
+        </nav>
 <div class="container">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
@@ -7,36 +46,41 @@
     		<form role="form">
     			<fieldset>
     				<h2>ユーザー編集</h2>
+    				
     				<hr class="colorgraph">
-    				<div class="form-group">
-    				        <%= f.email_field :email, :autofocus => true, :placeholder => 'メールアドレス', :class => 'form-control input-lg'  %>
-    				</div>
+    				<p class="thumbnail"><%= image(@user) %></p>
+    				
+            <%= f.hidden_field :image %>
+          　<p><%= f.file_field  :image, :title => 'ohoh' %></p>
+
+    				<!---div class="form-group">
+    				       <!--%= f.email_field :email, :autofocus => true, :placeholder => 'メールアドレス', :class => 'form-control input-lg'  %>
+    				</div-->
     				<div class="form-group">
     				         <%= f.text_field :name, :placeholder => '名前', :class => 'form-control input-lg' %>
+    				         <%= f.text_field :about_me, :placeholder => '私について', :class => 'form-control input-lg', :style => 'margin-top:10px' %>
     				</div>
-    				<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-            <% end %>
+    				<!--% if devise_mapping.confirmable? && resource.pending_reconfirmation? %-->
+              <!--div>Currently waiting confirmation for: <!--%= resource.unconfirmed_email %></div-->
+            <!--% end %-->
+
+    				 <!--i>(あなたはそれを変更したくない場合は空白のままに)</i-->
+    				<!--div class="form-group">
+    				         <!%= f.password_field :password, :autofocus => true, :placeholder => 'パスワード', :class => 'form-control input-lg' %>
+    				</div-->
     				
-    				
-    				
-    				 <i>(あなたはそれを変更したくない場合は空白のままに)</i>
-    				<div class="form-group">
-    				         <%= f.password_field :password, :autofocus => true, :placeholder => 'パスワード', :class => 'form-control input-lg' %>
-    				</div>
-    				
-    				 <div class="form-group">
-    				         <%= f.password_field :password_confirmation, :autofocus => true, :placeholder => 'パスワードの確認', :class => 'form-control input-lg' %>
-    				  </div>
-    				   <i>(私たちはあなたの変更を確認するために現在のパスワードを必要とします。)</i>
-    				  <div class="form-group">
-    				         <%= f.password_field :current_password, :autofocus => true, :placeholder => '現在のパスワード', :class => 'form-control input-lg' %>
-    				  </div>
+    				 <!--div class="form-group">
+    				         <!%= f.password_field :password_confirmation, :autofocus => true, :placeholder => 'パスワードの確認', :class => 'form-control input-lg' %>
+    				  </div-->
+    				   <!--i>(私たちはあなたの変更を確認するために現在のパスワードを必要とします。)</i-->
+    				  <!--div class="form-group">
+    				         <!--%= f.password_field :current_password, :autofocus => true, :placeholder => '現在のパスワード', :class => 'form-control input-lg' %>
+    				  </div-->
     				 
     				
-    				 <div class="actions">
-                        <%= f.submit '更新'%>
-                      </div>
+            <div class="actions">
+              <%= f.submit '更新'%>
+            </div>
     				 
     				<hr class="colorgraph">
     				<div class="row">
@@ -48,18 +92,15 @@
     					</div>
     				</div>
     			</fieldset>
-    			
-
-                    
-                    
-                     <%= link_to '戻る','/', class: "button" %>
+          <%= link_to '戻る','/', class: "button" %>
     		</form>
     		
     	</div>
     </div>
-    
-    <%= render "devise/shared/links" %>
-    <% end %>
-    <h3>アカウントをキャンセル</h3>
-    <p>不幸? <%= button_to "アカウントをキャンセル", registration_path(resource_name), data: { confirm: "本気ですか?" }, method: :delete %></p>
+    <div  class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+      <%= render "devise/shared/links" %>
+      <% end %>
+      <h3>アカウントをキャンセル</h3>
+      <p>不幸? <%= button_to "アカウントをキャンセル", registration_path(resource_name), data: { confirm: "本気ですか?" }, method: :delete %></p>
+    </div>
 </div>

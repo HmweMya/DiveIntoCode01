@@ -46,7 +46,7 @@ group :development do
 end
   
   
-  
+  gem 'pry-rails'
   gem 'hirb'
   gem 'hirb-unicode'
 
@@ -54,3 +54,10 @@ end
   gem 'therubyracer', platforms: :ruby 
   gem 'bootstrap-sass', '~> 3.2.0' 
   gem 'autoprefixer-rails'
+  
+  gem 'omniauth' 
+  gem 'omniauth-twitter' 
+  gem 'omniauth-facebook'
+  
+  gem 'carrierwave'
+  gem 'rmagick'

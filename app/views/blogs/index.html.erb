@@ -1,0 +1,92 @@
+<header>
+  <style>
+    .thumbnail{
+            margin: 0px auto;
+            max-width: 200px;
+        }
+    table thead tr td,
+    table tbody tr td {
+        text-align:center;
+    }
+    body {
+      color:#9966ff;
+    }
+    table tr td {
+      margin-top:10px;
+      margin-right:10px;
+    }
+    .name{
+      padding-right : 20px;
+    }
+  </style>
+  
+</header>
+<nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+              </button>
+              <a class="navbar-brand">トップページ</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li class=""><%= link_to 'マイページ','/users/edit', class: "color" %></li>
+                
+                <li><%= link_to 'お問い合わせ','entry', class: "color" %></li>
+                <li><%= link_to 'Blog',blogs_path, class: "color" %></li>
+                <li><%= link_to "facebook認証", user_omniauth_authorize_path(:facebook), class: 'fa fa-facebook-square navbar-link color' %></li> 
+                <li><%= link_to "twitter認証", user_omniauth_authorize_path(:twitter), class: 'fa fa-twitter-square navbar-link color' %></li>
+                <li><%= link_to "ユーザー一覧", '/users/index' , class: "color" %> </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+               <li><% if user_signed_in? %>
+                     <%= link_to 'ログアウト' , destroy_user_session_path, method: :delete, class:"glyphicon glyphicon-user button color" %>
+                     <% else %>
+                     <%= link_to 'ログイン' ,new_user_session_path, class: "glyphicon glyphicon-log-in button color" %></li> 
+                <% end %></ul>
+              
+
+            </div>
+          </div>
+        </nav>
+<div class="container">
+  <div class="row">
+      <h1>ブログのリスト</h1>
+      <table>
+        <thead>
+          <tr>
+            <td><strong>タイトル</strong></td>
+            <td><strong>名前</strong></td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @blogs.each do |blog| %>
+            <tr>
+              <td><%= blog.title %></td>
+              
+          
+            
+              <td class="name"><%= blog.user.name %></td>
+              
+              <td class="name"><p class="thumbnail img-rounded img-responsive"><%= image_tag blog.user.image %></p></td>
+              
+              <td class="btn btn-success"><%= link_to 'ショー',blog %></td>
+              </td>
+              <% if current_user.id==blog.user.id %>
+                <td class="btn btn-warning"><%= link_to '編集', edit_blog_path(blog) %></td>
+                
+                  <td class="btn btn-danger"><%= link_to '削除', blog, method: :delete, data: { confirm: '本当に？' } %></td>
+                
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <br/>
+    
+    <%= link_to '新しいブログ', new_blog_path, class:"btn btn-info" %>
+    </div>
+</div>
