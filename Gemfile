@@ -60,4 +60,5 @@ end
   gem 'omniauth-facebook'
   
   gem 'carrierwave'
-  gem 'rmagick'
+  #gem 'rmagick'
+  gem "rmagick", '~> 2.13.1', :require => 'RMagick'
