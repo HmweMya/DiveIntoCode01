@@ -71,7 +71,7 @@
             
               <td class="name"><%= blog.user.name %></td>
               
-              <td class="name"><p class="thumbnail img-rounded img-responsive"><%= image_tag blog.user.image %></p></td>
+              <td class="name"><p class="thumbnail img-rounded img-responsive"><%=  image(blog.user) %></p></td>
               
               <td class="btn btn-success"><%= link_to 'ショー',blog %></td>
               </td>

@@ -23,7 +23,7 @@ module ApplicationHelper
     elsif user.provider == 'twitter'
       #image_tag = "http://furyu.nazo.cc/twicon/#{user.uid}"
       @image = user.profile_image_url
-      @image.slice!("_normal")
+      @image.slice!("_bigger") || @image.slice!("_normal")
       
       image_tag @image
       #binding.pry
