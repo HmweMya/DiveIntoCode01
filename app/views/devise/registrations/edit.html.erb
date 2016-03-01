@@ -51,7 +51,7 @@
     				<p class="thumbnail"><%= image(@user) %></p>
     				
             <%= f.hidden_field :image %>
-          　<p><%= f.file_field  :image, :title => 'ohoh' %></p>
+          　<p><%= f.file_field  :image %></p>
 
     				<!---div class="form-group">
     				       <!--%= f.email_field :email, :autofocus => true, :placeholder => 'メールアドレス', :class => 'form-control input-lg'  %>
@@ -101,6 +101,6 @@
       <%= render "devise/shared/links" %>
       <% end %>
       <h3>アカウントをキャンセル</h3>
-      <p>不幸? <%= button_to "アカウントをキャンセル", registration_path(resource_name), data: { confirm: "本気ですか?" }, method: :delete %></p>
+      <p>本当に削除しますか？? <%= button_to "アカウントをキャンセル", registration_path(resource_name), data: { confirm: "一度削除すると復元できませんが宜しいでしょうか？" }, method: :delete %></p>
     </div>
 </div>
