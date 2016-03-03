@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: blogs
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  content    :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer
+#
+
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :set_user
@@ -9,6 +21,7 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
+    raise
     @blogs = Blog.all
   end
 

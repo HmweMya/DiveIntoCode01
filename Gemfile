@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
@@ -46,9 +45,9 @@ group :development do
 end
   
   
-  gem 'pry-rails'
-  gem 'hirb'
-  gem 'hirb-unicode'
+  #gem 'pry-rails'
+  #gem 'hirb'
+  #gem 'hirb-unicode'
 
   gem 'devise'
   gem 'therubyracer', platforms: :ruby 
@@ -62,3 +61,29 @@ end
   gem 'carrierwave'
   #gem 'rmagick'
   gem "rmagick", :require => 'RMagick'
+  
+  gem 'rambulance'
+  
+group :test, :development do   
+  gem 'awesome_print' 
+  gem 'better_errors' 
+  gem 'binding_of_caller' 
+  gem 'database_rewinder'
+  gem 'factory_girl_rails' 
+  gem 'hirb-unicode' 
+  gem 'hirb' 
+  gem 'pry-byebug' 
+  gem 'pry-doc' 
+  gem 'pry-rails' 
+  gem 'pry-stack_explorer' 
+  gem 'quiet_assets' 
+  gem 'tapp'
+  gem 'timecop' 
+  gem "annotate", github: "ctran/annotate_models" 
+  gem "colorize_unpermitted_parameters" 
+  gem "faker" 
+  gem "guard-rspec", require: false 
+  gem "rack-mini-profiler"
+  gem "spring-commands-rspec" 
+  gem "xray-rails" 
+end

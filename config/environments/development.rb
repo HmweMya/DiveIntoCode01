@@ -38,6 +38,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.consider_all_requests_local = false
+  
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host:'https://achieve-hmwemya.c9users.io' }
   config.action_mailer.perform_deliveries = true
@@ -52,4 +54,6 @@ Rails.application.configure do
       :authentication => :plain,
       :enable_starttls_auto => true
   }
+  
 end
+BetterErrors::Middleware.allow_ip! '10.240.0.211'

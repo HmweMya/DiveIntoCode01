@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: entries
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  email      :string
+#  contact    :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class EntriesController < ApplicationController
     before_action :set_blog, only: [:show, :edit, :update, :destroy]
     #before_action :logged_in_user, only: [:edit, :update]
