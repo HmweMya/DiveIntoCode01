@@ -89,5 +89,5 @@ group :test, :development do
 end
 
   gem 'mail_form'
-  gem 'simple_form'
+  # gem 'simple_form'
   gem 'mail'

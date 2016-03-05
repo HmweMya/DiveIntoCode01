@@ -21,7 +21,7 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    raise
+    #raise
     @blogs = Blog.all
   end
 

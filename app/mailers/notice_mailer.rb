@@ -8,10 +8,10 @@ class NoticeMailer < ApplicationMailer
   default from: "user@gmail.com"
   
   def sendmail_confirm(entry)
-    @greeting = "こんにちは、"+ entry.name
+    @greeting = "こんにちは、"+ entry.name+"さん"
 
     #mail to: "to@example.org"
-    mail to: entry.email, subject: "ActionMailer test"
+    mail to: entry.email, subject: "お問い合わせ入力について"
   end
   def mail_receive 
     
