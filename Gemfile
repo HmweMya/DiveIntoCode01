@@ -87,3 +87,7 @@ group :test, :development do
   gem "spring-commands-rspec" 
   gem "xray-rails" 
 end
+
+  gem 'mail_form'
+  gem 'simple_form'
+  gem 'mail'

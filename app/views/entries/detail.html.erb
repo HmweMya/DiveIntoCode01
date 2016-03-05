@@ -1,0 +1,51 @@
+<style>
+    table tr td {
+        min-width:150px; 
+    }
+    table tr td{
+        text-align:center;
+    }
+</style>
+
+<div class="container">
+    <h3 style="color:#9966ff">お問い合わせ一覧</h3>
+    <hr class="colorgraph">
+    <% @entry.each do |i| %>
+        <table>
+            <tr>
+                <td><span style="color:#9966ff">件名:</span></td>
+                <td><%= i.title %></td>
+            </tr>
+            <tr>
+                <td><span style="color:#9966ff">名前:</span></td>
+                <td><%= i.name %></td>
+            </tr>
+            <tr> 
+                <td><span style="color:#9966ff">お問い合わせ内容:</span></td>
+                <td><%= i.contact %> </td>
+            </tr> 
+            <tr>
+                <td><span style="color:#9966ff">日時:</span></td>
+                <td><%= i.created_at %></td>
+            </tr>
+            <tr>
+                <td><span style="color:#9966ff">メール:</span></td>
+                <td><%= i.email %></td>
+            </tr>
+        
+         </table>
+         <hr style="width:100%;background-color:#009933;height:1px;">
+        
+         
+         
+    <% end %>
+            
+           
+        
+        
+        
+    
+    
+    
+
+</div>

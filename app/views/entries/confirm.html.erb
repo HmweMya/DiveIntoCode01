@@ -1,19 +1,31 @@
-<body class="body_index">
+<style>
+    .width {
+        width: 150px;
+    }
+    table tr td {
+        padding-top: 10px;
+    }
+</style>
+<div class="container">
     <table>
-<%= form_for @entry, url: thanks_path do |f| %>
-<tr>
- <td>名前</td>
- <td><%= f.text_field :name %></td>
- 
- </tr>
- <tr>
-     <td>メールアドレス</td>
-    <td><%= f.text_field :email %></td>
-  </tr>
-  <tr>
-      <td>お問い合わせ内容</td>
-   <td><%= f.text_area :contact %></td>
-   </tr>
+    <%= form_for @entry, url: thanks_path do |f| %>
+    <tr>
+     <td class="width">件名「タイトル』</td>
+     <td><%= f.text_field :title %></td>
+     
+     </tr>
+    <tr>
+     <td class="width">名前</td>
+     <td><%= f.text_field :name %></td>
+     </tr>
+     <tr>
+         <td class="width">メールアドレス</td>
+        <td><%= f.text_field :email %></td>
+      </tr>
+      <tr>
+          <td class="width">お問い合わせ内容</td>
+       <td><%= f.text_area :contact %></td>
+       </tr>
    </table>
   <p class="align"><%= f.submit '保存', :class => 'button' %></p>
 <% end %>
@@ -24,4 +36,4 @@
      <%= f.hidden_field :contact %>
     
 <% end %>
-</body>
+</div>

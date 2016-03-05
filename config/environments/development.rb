@@ -38,7 +38,9 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.consider_all_requests_local = false
+  require 'mail'
+
+  config.consider_all_requests_local = true
   
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host:'https://achieve-hmwemya.c9users.io' }
@@ -54,6 +56,24 @@ Rails.application.configure do
       :authentication => :plain,
       :enable_starttls_auto => true
   }
+  
+  
+  
+  
+
+  Mail.defaults do
+    retriever_method :pop3, {
+      :address => "pop.gmail.com",
+      :port => 995,
+      :user_name => 'hmwehmwe.91@gmail.com',
+      :password => 'handsforeverforevertogether',
+      :enable_ssl => true
+      #:authentication => :login
+
+    }
+  end
+  
+
   
 end
 BetterErrors::Middleware.allow_ip! '10.240.0.211'

@@ -27,6 +27,7 @@
                 <li><%= link_to "facebook認証", user_omniauth_authorize_path(:facebook), class: 'fa fa-facebook-square navbar-link color' %></li> 
                 <li><%= link_to "twitter認証", user_omniauth_authorize_path(:twitter), class: 'fa fa-twitter-square navbar-link color' %></li>
                 <li><%= link_to "ユーザー一覧", '/users/index' , class: "color" %> </li>
+                <li><%= link_to "お問い合わせ受信トレイ", detail_path, class: "color" %></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                <li><% if user_signed_in? %>

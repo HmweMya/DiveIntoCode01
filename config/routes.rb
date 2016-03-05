@@ -62,5 +62,8 @@ Rails.application.routes.draw do
      post 'entry' => 'entries#new'
      post 'confirm' => 'entries#confirm'
      post 'thanks' => 'entries#thanks'
+     get 'detail' => 'entries#detail'
      #get 'login' => 'entries#login'
+     
+     resources :users, only:[:show,:edit,:update,:index]
 end

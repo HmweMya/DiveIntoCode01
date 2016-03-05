@@ -1,4 +1,12 @@
-<body class="body_index">
+<style>
+    .width {
+        width: 150px;
+    }
+    table tr td {
+        padding-top:10px;
+    }
+</style>
+<div class="container">
     <% if @entry.errors.any? %>
     <div class="need"  style="list-style:none;">
        <ul> <% @entry.errors.full_messages.each do |message| %>
@@ -9,20 +17,23 @@
     <% end %>
     <%= form_for @entry, url: confirm_path do |f| %>
 <table>
-    
     <tr>
-         <td>名前<span class="need">(*)</span></td>
+        <td class="width">件名『タイトル』<span class="need">(*)</span></td>
+        <td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+         <td class="width">名前<span class="need">(*)</span></td>
          <td><%= f.text_field :name %></td>
     </tr>
     <tr>
-        <td>メールアドレス<span class="need">(*)</span></td>
+        <td class="width">メールアドレス<span class="need">(*)</span></td>
          <td><%= f.text_field :email %></td>
     </tr>
     <tr>
-        <td>お問い合わせ内容</td>
+        <td class="width">お問い合わせ内容</td>
         <td><%= f.text_area :contact %></td> 
     </tr>
 </table>
 <p class="align"><%= f.submit '確認', :class => 'button' %></p>
  <% end %>
-</body>
+</div>
