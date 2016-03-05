@@ -14,15 +14,15 @@
         <table>
             <tr>
                 <td><span style="color:#9966ff">件名:</span></td>
-                <td><%= i.title %></td>
+                <td><%= i.title %><br/></td>
             </tr>
             <tr>
                 <td><span style="color:#9966ff">名前:</span></td>
-                <td><%= i.name %></td>
+                <td><%= i.name %><br/></td>
             </tr>
             <tr> 
                 <td><span style="color:#9966ff">お問い合わせ内容:</span></td>
-                <td><%= i.contact %> </td>
+                <td><p><%= simple_format(i.contact) %></td>
             </tr> 
             <tr>
                 <td><span style="color:#9966ff">日時:</span></td>
