@@ -51,8 +51,8 @@ Rails.application.configure do
       :address => "smtp.gmail.com",
       :port => 587,
       :domain => 'smtp.gmail.com',
-      :user_name => "hmwehmwe.91@gmail.com",
-      :password => "handsforeverforevertogether",
+      :user_name => ENV["GMAIL_ADDRESS"],
+      :password => ENV["GMAIL_PASSWORD"],
       :authentication => :plain,
       :enable_starttls_auto => true
   }
@@ -65,8 +65,8 @@ Rails.application.configure do
     retriever_method :pop3, {
       :address => "pop.gmail.com",
       :port => 995,
-      :user_name => 'hmwehmwe.91@gmail.com',
-      :password => 'handsforeverforevertogether',
+      :user_name => ENV["GMAIL_ADDRESS"],
+      :password => ENV["GMAIL_PASSWORD"],
       :enable_ssl => true
       #:authentication => :login
 
