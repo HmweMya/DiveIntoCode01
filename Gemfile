@@ -35,6 +35,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'dotenv'
+  gem 'dotenv-rails', :groups => [:development, :test]
 end
 
 group :development do
@@ -92,5 +93,7 @@ end
   gem 'mail_form'
   # gem 'simple_form'
   gem 'mail'
+  
+  #gem 'figaro'
   
   

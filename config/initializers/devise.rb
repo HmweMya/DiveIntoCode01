@@ -26,13 +26,13 @@ Devise.setup do |config|
   config.sign_out_via = :delete
   
     if Rails.env.production? 
-      config.omniauth :facebook, "961781613903334", "09d5f683ccab86272218a891a0ce5f28", :scope => 'email', :display => 'popup', :info_fields => 'name, email',:image_size => 'bigger'
-      config.omniauth :twitter, "RvGPdK0y4v2YRziUrYylIdtS9", "FXk1RvIt7OzjE56LgryjFnnkuU8Nx5KOd7X8FrucKbeZMHfUfH",:image_size => 'bigger'
+      config.omniauth :facebook, ENV["FACEBOOK_ID_PRODUCTION"], ENV["FACEBOOK_SECRET_KEY_PRODUCTION"], :scope => 'email', :display => 'popup', :info_fields => 'name, email',:image_size => 'bigger'
+      config.omniauth :twitter, ENV["TWITTER_ID_PRODUCTION"], ENV["TWITTER_SECRET_KEY_PRODUCTION"],:image_size => 'bigger'
       
       
     else
-      config.omniauth :facebook, "456387097897002", "868183ab38fe9c07c96e55cf8dd8698f", :scope => 'email', :display => 'popup', :info_fields => 'name, email'
-      config.omniauth :twitter, "rIhomJKExCLusjWEasDVvDAZh", "LhtGkPRskrJgKxlO2xSmTd2RxK6as21hLNvevMJABKh2x5zlNL",:image_size => 'bigger'
+      config.omniauth :facebook, ENV["FACEBOOK_ID_DEVELOPMENT"], ENV["FACEBOOK_SECRET_KEY_DEVELOPMENT"], :scope => 'email', :display => 'popup', :info_fields => 'name, email'
+      config.omniauth :twitter, ENV["TWITTER_ID_DEVELOPEMNT"], ENV["TWITTER_SECRET_KEY_DEVELOPMENT"],:image_size => 'bigger'
     end
 
 end

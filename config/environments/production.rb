@@ -88,8 +88,9 @@ Rails.application.configure do
       :port => 587,
       :domain => 'smtp.gmail.com',
       :user_name => ENV["GMAIL_ADDRESS"],
-      :password => ENV["GMAIL_PASSWORD"],
+      :password =>  ENV["GMAIL_PASSWORD"],
       :authentication => :plain,
-      :enable_starttls_auto => true
+      :enable_starttls_auto => true,
+      :openssl_verify_mode  => 'none'
   }
 end
