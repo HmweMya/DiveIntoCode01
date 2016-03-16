@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :blogs, dependent: :destroy
+  has_many :comments
   devise :database_authenticatable, :registerable,#for mail confirm
          :recoverable, :rememberable, :trackable, :validatable,:confirmable, :omniauthable
   mount_uploader :image, ImageUploader       
