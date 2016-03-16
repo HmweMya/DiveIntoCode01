@@ -23,7 +23,10 @@
             <td><%= @blog.content %></td>
         </tr>
         <tr>
-            
+             <td><%= render partial:'comments/form',locals:{comments:@blog.comments} %></td>
+        </tr>
+        <tr>
+             
               <% if current_user.id==@blog.user.id %>
               
                 <td><%= link_to '編集', edit_blog_path(@blog), class:"btn btn-warning" %> </td>
