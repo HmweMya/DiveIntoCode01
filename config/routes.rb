@@ -54,7 +54,9 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks" 
   }
      #root to:"top#index"
-     resources :blogs
+     resources :blogs do
+         resources :comments
+     end
      get 'blogs', to: 'blogs#index'
      root to: 'top#index'
      get 'top' => 'top#index'
