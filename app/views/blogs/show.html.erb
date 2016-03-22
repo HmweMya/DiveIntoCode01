@@ -24,7 +24,9 @@
         </tr>
         <tr>
              <td><%= render partial:'comments/form',locals:{comments:@blog.comments} %></td>
-             <td><%= render partial:'comments/index',locals:{comments:@blog.comments} %></td>
+             <div id="comments_area">
+               <td><%= render partial:'comments/index',locals:{comments:@blog.comments} %></td>
+             </div>
         </tr>
         <tr>
              
