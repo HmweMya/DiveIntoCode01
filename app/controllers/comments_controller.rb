@@ -61,7 +61,7 @@ class CommentsController < ApplicationController
       format.html { redirect_to blog_path(@comment.blog), notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
       @blog = @comment.blog
-      format.js {render :index, notice: 'Comment was successfully destroyed.'}
+      format.js { render :index, notice: 'Comments was successfully destroyed.' }
     end
   end
 
