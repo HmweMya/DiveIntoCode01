@@ -11,6 +11,9 @@ class QsController < ApplicationController
   # GET /qs/1
   # GET /qs/1.json
   def show
+    #@q_form = @q.answers.build
+    @answer = @q.answers.build
+    @answers = @q.answers
   end
 
   # GET /qs/new
@@ -68,6 +71,7 @@ class QsController < ApplicationController
     def set_q
       @q = Q.find(params[:id])
     end
+    
     def set_user
       @user = current_user
     end

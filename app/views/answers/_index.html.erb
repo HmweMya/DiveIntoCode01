@@ -1,5 +1,7 @@
 
-    <ul><% @answers.each do |answer| %>
+
+    <ul>
+      <% answers.each do |answer| %>
       <% unless answer.id.nil? %>
         <li><%= answer.user %>
         <%= answer.content %>
