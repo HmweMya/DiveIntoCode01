@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
   has_many :blogs, dependent: :destroy
   has_many :comments
   has_many :qs
+  has_many :answers
   devise :database_authenticatable, :registerable,#for mail confirm
          :recoverable, :rememberable, :trackable, :validatable,:confirmable, :omniauthable
   mount_uploader :image, ImageUploader       
