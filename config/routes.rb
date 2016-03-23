@@ -43,6 +43,7 @@
 
 Rails.application.routes.draw do
   
+  resources :answers
   resources :qs do
         resources :answers
      end
