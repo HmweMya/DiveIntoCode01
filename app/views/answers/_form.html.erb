@@ -10,17 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+  <%= f.hidden_field :q_id %>
+  <%= f.hidden_field :user_id %>
   <div class="field">
-    <%= f.label :q_id %><br>
-    <%= f.text_field :q_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
+    <%= f.label :コメント %><br>
     <%= f.text_field :content %>
   </div>
   <div class="actions">
