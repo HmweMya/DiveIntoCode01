@@ -1,0 +1,10 @@
+
+    <ul><% @answers.each do |answer| %>
+      <% unless answer.id.nil? %>
+        <li><%= answer.user %>
+        <%= answer.content %>
+        <%= link_to 'Edit', edit_answer_path(answer) %>
+        <%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <% end %>
+    <% end %></ul>
+
