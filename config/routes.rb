@@ -43,6 +43,9 @@
 
 Rails.application.routes.draw do
   
+  resources :qs do
+        resources :answers
+     end
   resources :comments
   get 'users/index'
 

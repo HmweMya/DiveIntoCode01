@@ -48,9 +48,9 @@ class BlogsController < ApplicationController
     #@user = Blog.find(current_user)
     #@blog = user.blogs.build(blog_params)
     #@blog = Blog.new(blog_params)
-    #@blog = current_user.blogs.build(blog_params)
+    @blog = current_user.blogs.build(blog_params)
    # @blog = Blog.new(params[:blog].permit!)
-   @blog = current_user.blogs.build(params[:blog].permit!)
+   #@blog = current_user.blogs.build(params[:blog].permit!)
     
 
     respond_to do |format|
@@ -102,21 +102,15 @@ class BlogsController < ApplicationController
       @user = current_user
     end
     # Never trust parameters from the scary internet, only allow the white list through.
-    # def blog_params
-    #   params.require(:blog).permit(:title,:content,:user_id)
+     def blog_params
+       params.require(:blog).permit(:title,:content,:user_id)
+     end
+    
+    # def correct_user
+    # # @user = User.find(34)
+    #   @user = User.find(Blog.find(params[:id])[:user_id])
+    #   #binding.pry
+    #   redirect_to(root_url) unless @user == current_user
+    #   #redirect_to(root_url) unless current_user?(@user)
     # end
-    #def logged_in_user
-      #unless logged_in?
-        #store_location
-        #flash[:danger] = "ログインしてください。."
-       # redirect_to login_url
-      #end
-    #end
-    def correct_user
-     # @user = User.find(34)
-      @user = User.find(Blog.find(params[:id])[:user_id])
-      #binding.pry
-      redirect_to(root_url) unless @user == current_user
-      #redirect_to(root_url) unless current_user?(@user)
-    end
 end

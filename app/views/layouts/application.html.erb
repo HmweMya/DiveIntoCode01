@@ -21,14 +21,22 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
-                <li class=""><%= link_to 'マイページ','/users/edit', class: "color" %></li>
-                
-                <li><%= link_to 'お問い合わせ',entry_path, class: "color" %></li>
+                <li class="dropdown"><a class="dropdown-toggle color" data-toggle="dropdown">User<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to 'マイページ','/users/edit', class: "color" %></li>
+                    <li><%= link_to "ユーザ一覧", '/users/index' , class: "color" %> </li>
+                  </ul>
+                </li> 
+                <li class="dropdown"><a class="dropdown-toggle color" data-toggle="dropdown">お問い合わせ<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to 'お問い合わせ',entry_path, class: "color" %></li>
+                    <li><%= link_to "お問い合わせ受信トレイ",  detail_path, class: "color" %></li>
+                  </ul>
+                </li>  
                 <li><%= link_to 'Blog',blogs_path, class: "color" %></li>
                 <li><%= link_to "facebook認証", user_omniauth_authorize_path(:facebook), class: 'fa fa-facebook-square navbar-link color' %></li> 
                 <li><%= link_to "twitter認証", user_omniauth_authorize_path(:twitter), class: 'fa fa-twitter-square navbar-link color' %></li>
-                <li><%= link_to "ユーザ一覧", '/users/index' , class: "color" %> </li>
-                <li><%= link_to "お問い合わせ受信トレイ",  detail_path, class: "color" %></li>
+                <li><%= link_to 'School_Q&A',qs_path, class: "color" %></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                <li><% if user_signed_in? %>

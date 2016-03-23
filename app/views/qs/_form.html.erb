@@ -1,0 +1,39 @@
+<%= form_for(@q) do |f| %>
+  <% if @q.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@q.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @q.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container">
+  
+  <form role="form">
+    <div class="form-group">
+      <label>タイトル:</label>
+      <%= f.text_field :title, :autofocus => true, :class => 'form-control input-lg'  %>
+    </div>
+    <div class="form-group">
+      <label for="sel1">カテゴリ:</label>
+      <%= f.select :category, options_for_select([["選択してください。", ""], "Postgresql", "SQLite", "MySQL", "その他"]), :class => 'form-control input-lg' %>
+    </div>
+    <div class="form-group">
+      <label>言語:</label>
+      <%= f.select :language, options_for_select([["選択してください。", ""], "Ruby On Rails", "JavaScript", "Bootstrap", "その他"]), :class => 'form-control input-lg' %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>質問内容:</label>
+      <%= f.text_area :content, :autofocus => true, :class => 'form-control input-lg'  %>
+    </div>
+      
+      <%= f.submit '登録', :class => 'btn btn-primary' %>
+      <%= link_to 'Back', qs_path, class:"btn btn-success" %>
+  </form>
+  </div>
+  
+<% end %>

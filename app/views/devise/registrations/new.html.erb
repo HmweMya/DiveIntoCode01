@@ -10,6 +10,9 @@
       				<h2>サインアップ画面</h2>
       				<hr class="colorgraph">
       				<div class="form-group">
+      				        <%= f.text_field :name, :autofocus => true, :placeholder => '名前', :class => 'form-control input-lg'  %>
+      				</div>
+      				<div class="form-group">
       				        <%= f.email_field :email, :autofocus => true, :placeholder => 'メールアドレス', :class => 'form-control input-lg'  %>
       				</div>
       				<div class="form-group">

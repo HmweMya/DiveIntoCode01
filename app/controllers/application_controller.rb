@@ -14,4 +14,13 @@ class ApplicationController < ActionController::Base
        end
       #devise_parameter_sanitizer.for(:account_update) << PERMISSIBLE_ATTRIBUTES
     end
+    
+    protected
+
+    def configure_permitted_parameters
+      #devise_parameter_sanitizer.for(:account_update) {|h| h.permit(:name, :image_url)}
+       devise_parameter_sanitizer.for(:sign_up) << :name
+      
+      #devise_parameter_sanitizer.for(:account_update) << PERMISSIBLE_ATTRIBUTES
+    end
 end

@@ -1,0 +1,28 @@
+
+<div class="container">
+  <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>
+             質問一覧
+          </h4>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="col-xs-4">投稿者名</th><th class="col-xs-6">タイトル</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @qs.each do |q| %>
+              <tr>
+                <td><%= q.user.name %></td>
+                <td><%= link_to q.title, q %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+  </div>
+  <%= link_to '新質問をする', new_q_path, class:"btn btn-info" %>
+</div>

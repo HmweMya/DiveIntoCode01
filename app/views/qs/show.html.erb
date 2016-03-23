@@ -1,0 +1,45 @@
+
+<div class="container">
+  <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>
+             質問の詳細
+          </h4>
+        </div>
+        <table class="table table-striped">
+            <tr>
+                <th class="col-xs-4">投稿者名:</th>
+                 <td class="col-xs-5"><%= @q.user.name %></td>
+            </tr>
+            <tr>
+                <th class="col-xs-4">タイトル:</th>
+                <td class="col-xs-5"><%= @q.title %></td>
+            </tr>
+            <tr>
+                <th class="col-xs-4">カテゴリ:</th>
+                <td class="col-xs-5"><%= @q.category %></td>
+            </tr>
+            <tr>
+                <th class="col-xs-4">言語:</th>
+                <td class="col-xs-5"><%= @q.language %></td>
+            </tr>
+            <tr>
+                <th class="col-xs-4">質問内容:</th>
+                <td class="col-xs-5"><%= @q.content %></td>
+            </tr>
+        </table>
+       
+      </div>
+       
+  </div>
+  <div class="row">
+      <% if current_user.id==@q.user.id %>
+        <span><%= link_to 'Edit', edit_q_path(@q), class:"btn btn-warning" %></span>
+        <span><%= link_to 'Destroy', @q, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></span>
+      <% end %>
+        <span><%= link_to 'Back', qs_path, class:"btn btn-success" %></span>
+  </div>
+</div>
+
+
