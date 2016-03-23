@@ -40,8 +40,10 @@
       <% end %>
         <span><%= link_to 'Back', qs_path, class:"btn btn-success" %></span>
   </div>
-  <%= render partial: 'answers/index', locals: {answers: @q.answers} %>
-  <%= render partial: 'answers/form', locals: {answers: @q.answers} %>
+  <div id="comments_area">
+      <%= render partial: 'answers/index', locals: {answers: @q.answers} %>
+  </div>
+    <%= render partial: 'answers/form', locals: {answers: @q.answers} %>
 </div>
 
 
