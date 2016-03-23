@@ -5,8 +5,8 @@
       <% unless answer.id.nil? %>
         <li><%= answer.user %>
         <%= answer.content %>
-        <%= link_to 'Edit', edit_answer_path(answer) %>
-        <%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <%= link_to '編集', edit_q_answer_path(@q,answer) %>
+        <%= link_to '削除', answer, method: :delete, data: { confirm: '本当に?' } %></li>
       <% end %>
     <% end %></ul>
 
