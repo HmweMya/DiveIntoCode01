@@ -33,8 +33,10 @@ class QsController < ApplicationController
 
     respond_to do |format|
       if @q.save
+        
         format.html { redirect_to @q, notice: '質疑の作成に成功しました。' }
         format.json { render :show, status: :created, location: @q }
+        QAmailer.sendmail_confirm(@q).deliver
       else
         format.html { render :new }
         format.json { render json: @q.errors, status: :unprocessable_entity }

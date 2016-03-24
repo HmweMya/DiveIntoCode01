@@ -21,7 +21,14 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
-                <li class="dropdown"><a class="dropdown-toggle color" data-toggle="dropdown">User<span class="caret"></span></a>
+                <% unless user_signed_in? %>
+                <li><%= link_to 'ログイン' ,new_user_session_path, class: "glyphicon glyphicon-log-in button color" %></li>
+                <li><%= link_to "facebook認証", user_omniauth_authorize_path(:facebook), class: 'fa fa-facebook-square navbar-link color' %></li> 
+                <li><%= link_to "twitter認証", user_omniauth_authorize_path(:twitter), class: 'fa fa-twitter-square navbar-link color' %></li>
+                <% end %>
+                
+                <% if user_signed_in? %>
+                  <li class="dropdown"><a class="dropdown-toggle color" data-toggle="dropdown">User<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><%= link_to 'マイページ','/users/edit', class: "color" %></li>
                     <li><%= link_to "ユーザ一覧", '/users/index' , class: "color" %> </li>
@@ -34,16 +41,18 @@
                   </ul>
                 </li>  
                 <li><%= link_to 'Blog',blogs_path, class: "color" %></li>
-                <li><%= link_to "facebook認証", user_omniauth_authorize_path(:facebook), class: 'fa fa-facebook-square navbar-link color' %></li> 
-                <li><%= link_to "twitter認証", user_omniauth_authorize_path(:twitter), class: 'fa fa-twitter-square navbar-link color' %></li>
                 <li><%= link_to 'School_Q&A',qs_path, class: "color" %></li>
+                <li><%= link_to 'ログアウト' , destroy_user_session_path, method: :delete, class:"glyphicon glyphicon-user button color" %></li>
+                
               </ul>
-              <ul class="nav navbar-nav navbar-right">
-               <li><% if user_signed_in? %>
-                     <%= link_to 'ログアウト' , destroy_user_session_path, method: :delete, class:"glyphicon glyphicon-user button color" %>
-                     <% else %>
-                     <%= link_to 'ログイン' ,new_user_session_path, class: "glyphicon glyphicon-log-in button color" %></li> 
-                <% end %></ul>
+              
+               
+                     
+                     
+                     
+                     
+                     
+                <% end %>
               
 
             </div>

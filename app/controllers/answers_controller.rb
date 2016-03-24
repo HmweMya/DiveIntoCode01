@@ -10,6 +10,7 @@ class AnswersController < ApplicationController
   # GET /answers/1
   # GET /answers/1.json
   def show
+    
   end
 
   # GET /answers/new
@@ -24,14 +25,16 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.json
   def create
-    @answer = Answer.new(answer_params)
+    @answer =current_user.answers.new(answer_params)
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to q_path(@answer.q_id), notice: 'コメントの作成に成功しました。' }
+        format.html { redirect_to q_path(@answer.q), notice: 'コメントの作成に成功しました。' }
         format.json { render :show, status: :created, location: @answer }
         @q = @answer.q
+        @answers = @q.answers
         format.js {render :index, notice: 'コメントの作成に成功しました。'}
+        Answermailer.sendmail_confirm(@answer).deliver
       else
         format.html { render :new }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
@@ -44,7 +47,7 @@ class AnswersController < ApplicationController
   def update
     respond_to do |format|
       if @answer.update(answer_params)
-        format.html { redirect_to q_path(@answer.q_id), notice: 'コメントは正常に更新されました。' }
+        format.html { redirect_to q_path(@answer.q), notice: 'コメントは正常に更新されました。' }
         format.json { render :show, status: :ok, location: @answer }
       else
         format.html { render :edit }
@@ -58,10 +61,10 @@ class AnswersController < ApplicationController
   def destroy
     @answer.destroy
     respond_to do |format|
-      format.html { redirect_to q_path(@answer.q), notice: 'コメントが正常に破壊されました。' }
+      format.html { redirect_to q_path(@answer.q), notice: 'コメントが正常に消されました。' }
       format.json { head :no_content }
       @q = @answer.q
-      format.js { render :index, notice: 'コメントが正常に破壊されました。' }
+      format.js { render :index, notice: 'コメントが正常に消されました。' }
     end
   end
 

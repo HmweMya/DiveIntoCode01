@@ -1,6 +1,38 @@
-<h1>Editing Answer</h1>
+<div class="container">
+  <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>
+             コメント編集
+          </h4>
+        </div>
+        <%= form_for(@answer) do |f| %>
+  <% if @answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @answer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :q_id %>
+  <%= f.hidden_field :user_id %>
+  <div class="field">
+    <%= f.label :コメント %><br>
+    <%= f.text_field :content %>
+  </div> 
+    <br/><%= f.submit class: 'btn btn-info' %>
+    <% end %>
+    　</div>
+  </div>
+  <div class="row">
+      <%= link_to 'Back', q_path(@answer.q), class:"btn btn-success" %>
+  </div>
+</div>
 
-<%= link_to 'Show', q_answer_path(@answer.q,@answer) %> |
-<%= link_to 'Back', q_path(@answer.q) %>
+
+
+

@@ -32,7 +32,7 @@ Devise.setup do |config|
       
     else
       config.omniauth :facebook, ENV["FACEBOOK_ID_DEVELOPMENT"], ENV["FACEBOOK_SECRET_KEY_DEVELOPMENT"], :scope => 'email', :display => 'popup', :info_fields => 'name, email'
-      config.omniauth :twitter, ENV["TWITTER_ID_DEVELOPEMNT"], ENV["TWITTER_SECRET_KEY_DEVELOPMENT"],:image_size => 'bigger'
+      config.omniauth :twitter, ENV["TWITTER_ID_DEVELOPMENT"], ENV["TWITTER_SECRET_KEY_DEVELOPMENT"],:image_size => 'bigger'
     end
 
 end

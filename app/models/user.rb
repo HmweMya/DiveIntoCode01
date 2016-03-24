@@ -62,9 +62,7 @@ class User < ActiveRecord::Base
                            email: User.create_unique_email, 
                            password: Devise.friendly_token[0,20],
                            profile_image_url: auth.info.image
-                          # profile_image_url: "http://a0.twimg.com/profile_images/#{uid}.jpg"
                           ) 
-                          #binding.pry
       end 
       user
   end

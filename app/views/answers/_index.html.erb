@@ -1,12 +1,26 @@
 
 
-    <ul>
-      <% answers.each do |answer| %>
-      <% unless answer.id.nil? %>
-        <li><%= answer.user %>
-        <%= answer.content %>
-        <%= link_to '編集', edit_q_answer_path(@q,answer) %>
-        <%= link_to '削除', answer, method: :delete, data: { confirm: '本当に?' } %></li>
-      <% end %>
-    <% end %></ul>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>投稿者名</th><th>コメント内容</th><th></th>
+              </tr>
+            </thead>
+            <% answers.each do |answer| %>
+            <% unless answer.id.nil? %>
+            <tbody>
+              <tr>
+                <td><%= answer.user.name %></td><td><%= simple_format(answer.content) %></td>
+                <% if current_user.id== answer.user_id %>
+                <td><%= link_to '編集', edit_q_answer_path(@q,answer), class:"btn btn-warning" %>
+                    <%= link_to '削除', answer, method: :delete, data: { confirm: '本当に?' }, class:"btn btn-danger" %>
+                </td>
+                <% end %>
+              </tr>
+            </tbody>
+            <% end %>
+            <% end %>
+        </table>
+      
+    
 

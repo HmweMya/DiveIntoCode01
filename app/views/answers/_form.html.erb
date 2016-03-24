@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for(@answer,remote: true) do |f| %>
   <% if @answer.errors.any? %>
     <div id="error_explanation">
@@ -15,8 +16,7 @@
   <div class="field">
     <%= f.label :コメント %><br>
     <%= f.text_field :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  </div> 
+    <br/><%= f.submit class: 'btn btn-info' %>
 <% end %>
+</div>
