@@ -5,10 +5,9 @@ class Answermailer < ApplicationMailer
   #
   #   en.answermailer.sendmail_confirm.subject
   #
-  def sendmail_confirm(a)
-    @greeting = "こんにちは、"+ a.user.name+"さん"
-
+  def sendmail_confirm(answer)
+    @greeting = "こんにちは、"+ answer.q.user.name+"さん"
     #mail to: "to@example.org"
-    mail to: a.q.user.email, subject: "あなたの質問にコメントが付きました。"
+    mail to: answer.q.user.email, subject: "あなたの質問にコメントが付きました。"
   end
 end

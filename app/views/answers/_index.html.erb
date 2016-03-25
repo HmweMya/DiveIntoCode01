@@ -16,6 +16,9 @@
                     <%= link_to '削除', answer, method: :delete, data: { confirm: '本当に?' }, class:"btn btn-danger" %>
                 </td>
                 <% end %>
+                <% unless current_user.id== answer.user_id %>
+                <td><span class="glyphicon glyphicon-refresh"></span></td>
+                <% end %>
               </tr>
             </tbody>
             <% end %>

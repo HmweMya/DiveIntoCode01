@@ -15,7 +15,7 @@
   <%= f.hidden_field :user_id %>
   <div class="field">
     <%= f.label :コメント %><br>
-    <%= f.text_field :content %>
+    <%= f.text_area :content, :id => 'message' %>
   </div> 
     <br/><%= f.submit class: 'btn btn-info' %>
 <% end %>
