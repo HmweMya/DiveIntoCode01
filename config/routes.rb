@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   resources :answers
   resources :qs do
         resources :answers
-     end
+  end
   resources :comments
   get 'users/index'
 
@@ -72,5 +72,10 @@ Rails.application.routes.draw do
      get 'detail' => 'entries#detail'
      #get 'login' => 'entries#login'
      
-     resources :users, only:[:show,:edit,:update,:index]
+     resources :users, only:[:show,:edit,:update,:index] do
+      member do
+        get :following, :followers
+      end
+     end
+     resources :relationship, only:[:create,:destroy] 
 end
