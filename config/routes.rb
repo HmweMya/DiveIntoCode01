@@ -43,6 +43,10 @@
 
 Rails.application.routes.draw do
   
+  get 'relationship/create'
+
+  get 'relationship/destroy'
+
   resources :answers
   resources :qs do
         resources :answers
